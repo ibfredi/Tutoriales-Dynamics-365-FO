@@ -1,5 +1,5 @@
 # Extensión de formulario para metodo active del DataSource
-
+```
 [ExtensionOf(formDataSourceStr(EcoResProductDetailsExtended, InventTable))]
 internal final class EcoResProductDetailsExtended_FDS_Extension
 {
@@ -26,5 +26,5 @@ internal final class EcoResProductDetailsExtended_FDS_Extension
 
         return ret;
     }
-
 }
+```
