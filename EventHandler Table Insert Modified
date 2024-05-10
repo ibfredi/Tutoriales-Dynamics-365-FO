@@ -1,0 +1,29 @@
+internal final class ATXEcoResProductMasterColorTableEventHandler_AT
+{
+    /// <summary>
+    ///
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    [DataEventHandler(tableStr(EcoResProductMasterColor), DataEventType::Inserted)]
+    public static void EcoResProductMasterColor_onInserted(Common sender, DataEventArgs e)
+    {
+        EcoResProductMasterColor    productMasterColor = sender as EcoResProductMasterColor;
+
+        productMasterColor.ATXCustomsDescription = ATXHTSOriginTable::Find(productMasterColor.HTSOriginId).Description;
+    }
+
+    /// <summary>
+    ///
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    [DataEventHandler(tableStr(EcoResProductMasterColor), DataEventType::ModifiedField)]
+    public static void EcoResProductMasterColor_onModifiedField(Common sender, DataEventArgs e)
+    {
+        EcoResProductMasterColor    productMasterColor = sender as EcoResProductMasterColor;
+
+        productMasterColor.ATXCustomsDescription = ATXHTSOriginTable::Find(productMasterColor.HTSOriginId).Description;
+    }
+
+}
