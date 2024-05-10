@@ -1,0 +1,19 @@
+/// <summary>
+///
+/// </summary>
+/// <param name="sender"></param>
+/// <param name="e"></param>
+[FormControlEventHandler(formControlStr(EcoResProductMasterDimension, ButtonGridConfiguration), FormControlEventType::Clicked)]
+public static void ButtonGridConfiguration_OnClicked(FormControl sender, FormControlEventArgs e)
+{
+    EcoResProductMaster productMasterCaller;
+    EcoResProductDimPerCompanyFormHelper formHelper = EcoResProductDimPerCompanyFormHelper::construct();
+    Args args = new Args();
+    MenuFunction mf;
+
+    productMasterCaller = formHelper.getProductMasterRec(sender.formRun().args());
+    args.record(productMasterCaller);
+    args.caller(sender.formRun());
+    mf = new MenuFunction(menuItemDisplayStr(ItemGridLinesConfiguration_AT), MenuItemType::Display);
+    mf.run(args);
+}
